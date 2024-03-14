@@ -1,4 +1,6 @@
+'use str'
 export default function QueryProcessor(query: string): string {
+
   if (query.toLowerCase().includes("shakespeare")) {
     return (
       "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -11,6 +13,21 @@ export default function QueryProcessor(query: string): string {
       "KR"
     );
   }
+  if (query.toLowerCase().includes("What is %d plus %d?")) {
+    const str = query.toLowerCase();
+    const numbers = str.match(/\d+/g);
+    if (numbers)
+    {
+      const firstNumber = parseInt(numbers[0]);
+      const secondNumber = parseInt(numbers[1]);
+      const sum = firstNumber + secondNumber;
+      return (
+        sum.toString()
+      );
+    }
+    
+  }
+  
 
   return "";
 }
