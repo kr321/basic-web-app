@@ -31,16 +31,16 @@ export default function QueryProcessor(query: string): string {
     const str = query.toLowerCase();
     const regex = /what is (\d+) multiplied by (\d+)/;
     const numbers = str.match(regex);
-      if (numbers)
-      {
-        const firstNumber = parseInt(numbers[0]);
-        const secondNumber = parseInt(numbers[1]);
-        const sum = firstNumber * secondNumber;
-        return (
-          sum.toString()
-        );
-      }
+    if (numbers)
+    {
+      const firstNumber = parseInt(numbers[1]);
+      const secondNumber = parseInt(numbers[2]);
+      const sum = firstNumber * secondNumber;
+      return (
+        sum.toString()
+      );
     }
+  }
   
 
   return "";
