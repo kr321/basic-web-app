@@ -13,23 +13,24 @@ export default function QueryProcessor(query: string): string {
       "KR"
     );
   }
-  if (query.toLowerCase().includes("What is %d plus %d")) {
+  if (query.toLowerCase().includes("plus")) {
     const str = query.toLowerCase();
     const regex = /what is (\d+) plus (\d+)/;
     const numbers = str.match(regex);
     if (numbers)
     {
-      const firstNumber = parseInt(numbers[0]);
-      const secondNumber = parseInt(numbers[1]);
+      const firstNumber = parseInt(numbers[1]);
+      const secondNumber = parseInt(numbers[2]);
       const sum = firstNumber + secondNumber;
       return (
         sum.toString()
       );
     }
-    if (query.toLowerCase().includes("What is %d multiplied by %d?")) {
-      const str = query.toLowerCase();
-      const regex = /what is (\d+) multiplied by (\d+)/;
-      const numbers = str.match(regex);
+  }
+  if (query.toLowerCase().includes("multiplied by")) {
+    const str = query.toLowerCase();
+    const regex = /what is (\d+) multiplied by (\d+)/;
+    const numbers = str.match(regex);
       if (numbers)
       {
         const firstNumber = parseInt(numbers[0]);
@@ -39,19 +40,7 @@ export default function QueryProcessor(query: string): string {
           sum.toString()
         );
       }
-      if (query.toLowerCase().includes("Which of the following numbers is the largest: 96, 48, 99?")) {
-        const str = query.toLowerCase();
-        const numbers = str.match(/\d+/g);
-        if (numbers)
-        {
-          const firstNumber = parseInt(numbers[0]);
-          const secondNumber = parseInt(numbers[1]);
-          const sum = firstNumber * secondNumber;
-          return (
-            sum.toString()
-          );
-        }
-  }
+    }
   
 
   return "";
