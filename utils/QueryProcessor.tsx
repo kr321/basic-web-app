@@ -16,7 +16,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("What is %d plus %d")) {
     const str = query.toLowerCase();
     const regex = /what is (\d+) plus (\d+)/;
-    const numbers = input.match(regex);
+    const numbers = str.match(regex);
     if (numbers)
     {
       const firstNumber = parseInt(numbers[0]);
@@ -29,7 +29,7 @@ export default function QueryProcessor(query: string): string {
     if (query.toLowerCase().includes("What is %d multiplied by %d?")) {
       const str = query.toLowerCase();
       const regex = /what is (\d+) multiplied by (\d+)/;
-      const numbers = input.match(regex);
+      const numbers = str.match(regex);
       if (numbers)
       {
         const firstNumber = parseInt(numbers[0]);
